@@ -1,0 +1,84 @@
+.MenuItem {
+  margin-top: 0px;
+  font-weight: 500;
+  font-size: 1em;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgb(121, 123, 141);
+  text-decoration: none;
+}
+
+.MenuLink {
+  text-decoration: none;
+  outline: none;
+}
+
+.ActiveItem {
+  font-weight: bold;
+}
+
+.MenuItem:hover {
+  color: rgb(161, 169, 238);
+}
+
+.ActiveItem .MenuItem {
+  color: rgb(161, 169, 238);
+}
+
+.Content {
+  margin-left: 16px;
+}
+
+.Icon {
+  width: 45px;
+  display: inline-block;
+}
+
+.Icon i {
+  font-size: 1.5em;
+  vertical-align: sub;
+}
+
+.ActiveItem .Icon i {
+  color: rgb(161, 169, 238);
+}
+
+.NumberContainer {
+  text-align: center;
+  padding-right: 15px;
+}
+
+.Number {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0 5px;
+  border-radius: 5px;
+  background-color: rgb(243, 243, 243);
+  margin: auto;
+}
+
+.ActiveItem .ActiveBorder {
+  opacity: 1;
+}
+
+.ActiveBorder {
+  width: 4px;
+  height: 100%;
+  display: inline-block;
+  background-color: rgb(161, 169, 238);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .MenuItem {
+    font-size: 1.15em;
+    margin-top: 10px;
+  }
+}

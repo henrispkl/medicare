@@ -1,0 +1,26 @@
+.InputContainer {
+  position: relative;
+}
+
+.InputContainer input {
+  width: 100%;
+}
+
+.InputContainer + .InputContainer {
+  margin-left: 20px;
+}
+
+.Name {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  transition: all 0.3s ease;
+  color: rgb(121, 123, 141);
+  font-size: 1em;
+}
+
+.ActiveName {
+  top: -10px;
+  font-size: 0.8em;
+  color: rgb(161, 169, 238);
+}

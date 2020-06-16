@@ -1,0 +1,11 @@
+.Page {
+  padding: 20px;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .Page {
+    overflow-y: scroll;
+    padding: 40px;
+  }
+}

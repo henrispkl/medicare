@@ -1,0 +1,22 @@
+.LogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 150px;
+  margin: auto;
+}
+
+.LogoContainer a {
+  display: block;
+}
+
+.LogoContainer img {
+  max-width: 100%;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .LogoContainer {
+    max-width: 200px;
+  }
+}

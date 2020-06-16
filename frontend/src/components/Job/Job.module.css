@@ -1,0 +1,140 @@
+.Job {
+  padding: 30px;
+  background-color: white;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 1600px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgb(241, 241, 241);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+}
+
+.Info {
+  width: 100%;
+}
+
+.JobName {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.JobType {
+  padding: 5px 10px;
+  background-color: rgb(243, 243, 243);
+  display: inline-block;
+  border-radius: 3px;
+  box-shadow: 0 0 0px 2px rgb(230, 230, 230);
+  margin-top: 15px;
+}
+
+.SecondInfo {
+  width: 60%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgb(121, 123, 141);
+  margin-top: 20px;
+}
+
+.SecondInfo .Row + .Row {
+  margin-left: 15px;
+}
+
+.ShiftType,
+.Dates {
+  font-weight: bold;
+}
+
+.Actions {
+  width: 40%;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.Buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.DetailsButton {
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid rgb(230, 230, 230);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+.DetailsButton:hover {
+  border-color: rgb(219, 221, 238);
+  color: rgb(161, 169, 238);
+}
+
+.ApplyButton {
+  background-color: rgb(161, 169, 238);
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid rgb(161, 169, 238);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  margin: 5px;
+  margin-left: 10px;
+}
+
+.ApplyButton:hover {
+  background-color: rgb(117, 128, 231);
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 992px) {
+  .Job {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 40px;
+    font-size: 1em;
+  }
+
+  .Info {
+    width: 40%;
+  }
+
+  .SecondInfo {
+    width: 40%;
+    margin-top: 0px;
+    justify-content: center;
+    display: flex;
+  }
+
+  .Actions {
+    width: 20%;
+    display: block;
+    margin-top: 0px;
+  }
+
+  .SecondInfo .Row {
+    margin: 0 20px;
+    width: 150px;
+  }
+
+  .SecondInfo .Row + .Row {
+    margin-left: 0px;
+  }
+
+  .Buttons {
+    margin-top: 10px;
+  }
+}

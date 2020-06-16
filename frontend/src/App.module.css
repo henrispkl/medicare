@@ -1,0 +1,15 @@
+.App {
+  background-color: rgb(243, 243, 243);
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .App {
+    height: 100vh;
+    display: flex;
+  }
+
+  .App > div {
+    flex-grow: 2;
+  }
+}

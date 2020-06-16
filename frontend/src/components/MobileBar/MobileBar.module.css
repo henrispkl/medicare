@@ -1,0 +1,15 @@
+.MobileBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .MobileBar {
+    display: none;
+  }
+ }
+
+

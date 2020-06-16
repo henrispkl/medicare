@@ -1,0 +1,31 @@
+.Form {
+  padding: 40px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgb(241, 241, 241);
+}
+
+.FormRow {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.Input100 {
+  width: 100%;
+}
+
+.Input75 {
+  width: 75%;
+}
+
+.Input50 {
+  width: 50%;
+}
+
+.Input25 {
+  width: 25%;
+}
+
+.Textarea {
+  resize: none;
+}

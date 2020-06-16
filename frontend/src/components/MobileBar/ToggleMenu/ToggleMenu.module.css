@@ -1,0 +1,17 @@
+.ToggleMenu {
+  display: block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 1.5em;
+}
+
+.ToggleMenu:hover {
+  color: rgb(161, 169, 238);
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .ToggleMenu {
+    display: none;
+  }
+}
