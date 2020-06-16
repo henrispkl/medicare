@@ -1,7 +1,7 @@
 Medicare
 ======
 
-A fictional platform for healthcare workers to apply in jobs. It's my first project using the MERN stack.
+A fictional freelancing platform for healthcare workers. It's my first project using the MERN stack.
 
 
 ## How to run
@@ -11,7 +11,8 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
 
     cd backend/
     npm start
-    
+
+
 **Frontend:** Same thing for the backend, just run the `npm start` command on the folder.
 
     cd frontend/
