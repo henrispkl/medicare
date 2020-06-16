@@ -1,0 +1,17 @@
+.PrimaryButton {
+  background-color: rgb(161, 169, 238);
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1em;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid rgb(161, 169, 238);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  margin: 5px;
+}
+
+.PrimaryButton:hover {
+  background-color: rgb(117, 128, 231);
+}

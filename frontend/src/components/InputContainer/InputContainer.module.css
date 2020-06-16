@@ -1,13 +1,10 @@
 .InputContainer {
   position: relative;
+  margin-top: 20px;
 }
 
 .InputContainer input {
   width: 100%;
-}
-
-.InputContainer + .InputContainer {
-  margin-left: 20px;
 }
 
 .Name {
@@ -23,4 +20,26 @@
   top: -10px;
   font-size: 0.8em;
   color: rgb(161, 169, 238);
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .InputContainer + .InputContainer {
+    margin-left: 20px;
+  }
+
+  .InputContainer {
+    margin-top: 0;
+  }
+
+  .ActiveName {
+    font-size: 0.7em;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .ActiveName {
+    font-size: 0.8em;
+  }
 }

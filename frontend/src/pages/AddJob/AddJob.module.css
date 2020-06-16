@@ -6,26 +6,36 @@
 }
 
 .FormRow {
-  display: flex;
   margin-bottom: 40px;
-}
-
-.Input100 {
-  width: 100%;
-}
-
-.Input75 {
-  width: 75%;
-}
-
-.Input50 {
-  width: 50%;
-}
-
-.Input25 {
-  width: 25%;
 }
 
 .Textarea {
   resize: none;
+}
+
+.SubmitButton {
+  margin-left: auto;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .FormRow {
+    display: flex;
+  }
+
+  .Input100 {
+    width: 100%;
+  }
+
+  .Input75 {
+    width: 75%;
+  }
+
+  .Input50 {
+    width: 50%;
+  }
+
+  .Input25 {
+    width: 25%;
+  }
 }

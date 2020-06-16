@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Page from '../../components/Page/Page';
 import styles from './AddJob.module.css';
 import InputContainer from '../../components/InputContainer/InputContainer';
+import SubmitButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
 
 const NewJob = () => {
   const [formData, setFormData] = useState({});
@@ -115,6 +116,7 @@ const NewJob = () => {
             ></textarea>
           </InputContainer>
         </div>
+        <SubmitButton className={styles.SubmitButton}>Submit</SubmitButton>
       </form>
     </Page>
   );
