@@ -7,7 +7,7 @@ A fictional freelancing platform for healthcare workers. It's my first project u
 ## How to run
 
 **Backend:**
-It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the MongoDB connection string. Then, just run nagivate to the folder and start it with the `npm start` command.
+It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the MongoDB connection string. Then, just nagivate to the folder and start it with the `npm start` command.
 
     cd backend/
     npm start
