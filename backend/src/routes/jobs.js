@@ -25,6 +25,8 @@ router.post('/add', (req, res) => {
     description: req.body.description
   });
 
+  console.log(req.body);
+
   job
     .save()
     .then(() => res.json('Job created!'))

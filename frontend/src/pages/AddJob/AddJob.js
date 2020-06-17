@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Page from '../../components/Page/Page';
+import axios from 'axios';
 import styles from './AddJob.module.css';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import SubmitButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
@@ -11,6 +12,17 @@ const NewJob = () => {
     const inputId = e.target.id;
     const content = e.target.value;
     setFormData({ ...formData, [inputId]: content });
+  };
+
+  const submitForm = () => {
+    axios
+      .post('http://localhost:4000/jobs/add', formData)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   return (
@@ -116,7 +128,9 @@ const NewJob = () => {
             ></textarea>
           </InputContainer>
         </div>
-        <SubmitButton className={styles.SubmitButton}>Submit</SubmitButton>
+        <SubmitButton className={styles.SubmitButton} click={submitForm}>
+          Submit
+        </SubmitButton>
       </form>
     </Page>
   );
