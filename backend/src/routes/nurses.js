@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', (req, res) => {
   Nurse.find()
     .then(nurses => res.json(nurses))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json(err));
 });
 
 // Add a nurse
@@ -21,14 +21,14 @@ router.post('/add', (req, res) => {
   nurse
     .save()
     .then(() => res.json('Nurse created!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json(err));
 });
 
 // Delete a nurse
 router.delete('/:id', (req, res) => {
   Nurse.findByIdAndDelete(req.params.id)
     .then(() => res.json('Nurse deleted!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json(err));
 });
 
 // Edit a nurse
@@ -41,7 +41,7 @@ router.post('/update/:id', (req, res) => {
     nurse
       .save()
       .then(() => res.json('Nurse updated!'))
-      .catch(err => res.status(400).json('Error: ' + err));
+      .catch(err => res.status(400).json(err));
   });
 });
 
