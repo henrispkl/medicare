@@ -41,9 +41,9 @@ const NewJob = () => {
         <div>
           <div className={styles.FormRow}>
             <InputContainer name="Job name" styleName={styles.Input100}>
-              <label htmlFor="jobName"></label>
+              <label htmlFor="name"></label>
               <input
-                id="jobName"
+                id="name"
                 minLength="3"
                 type="text"
                 onChange={formInputChange}
