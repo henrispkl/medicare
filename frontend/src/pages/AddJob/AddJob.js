@@ -19,14 +19,13 @@ const NewJob = () => {
   const submitForm = () => {
     setUploading(true);
 
-    API
-      .post('/jobs/add', formData)
+    API.post('/jobs/add', formData)
       .then(res => {
         setUploading(false);
         console.log(res);
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.response.data);
       });
   };
 
