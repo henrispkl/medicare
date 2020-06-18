@@ -6,6 +6,7 @@ const router = Router();
 // Get all jobs
 router.get('/', (req, res) => {
   Job.find()
+    .sort({ createdAt: 'desc' })
     .then(jobs => res.json(jobs))
     .catch(err => res.status(400).json(err));
 });

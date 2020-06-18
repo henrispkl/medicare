@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../utils/API';
+import { Link } from 'react-router-dom';
 import Page from '../../components/Page/Page';
 import styles from './Professionals.module.css';
 import DoctorImg from '../../assets/images/doctor.jpg';
 import NurseImg from '../../assets/images/nurse.jpg';
 import Spinner from '../../components/Spinner/Spinner';
+import PrimaryButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
 
 const Professionals = () => {
   const [doctors, setDoctors] = useState([]);
@@ -119,12 +121,32 @@ const Professionals = () => {
     <Page>
       <div className={styles.Professionals}>
         <div className={styles.Doctors}>
-          <h1>Doctors</h1>
+          <div className={styles.TitleBar}>
+            <h1>Doctors</h1>
+            <Link
+              className={styles.AddProfessionalButton}
+              to="/professionals/add"
+            >
+              <PrimaryButton>
+                <i className="fas fa-plus-square"></i> Add a doctor
+              </PrimaryButton>
+            </Link>
+          </div>
           {doctorsTable}
         </div>
 
         <div className={styles.Nurses}>
-          <h1>Nurses</h1>
+          <div className={styles.TitleBar}>
+            <h1>Nurses</h1>
+            <Link
+              className={styles.AddProfessionalButton}
+              to="/professionals/add"
+            >
+              <PrimaryButton>
+                <i className="fas fa-plus-square"></i> Add a nurse
+              </PrimaryButton>
+            </Link>
+          </div>
           {nursesTable}
         </div>
       </div>

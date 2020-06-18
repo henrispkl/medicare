@@ -97,6 +97,37 @@ tr:nth-child(even) {
   background-color: #fcfcfc;
 }
 
+.TitleBar {
+  margin-bottom: 20px;
+}
+
+.TitleBar h1 {
+  margin-bottom: 0;
+}
+
+.AddProfessionalButton {
+  margin-left: auto;
+}
+
+.AddProfessionalButton > div {
+  margin: 0;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .TitleBar {
+    display: flex;
+  }
+
+  .TitleBar {
+    margin-bottom: 0;
+  }
+
+  .TitleBar h1 {
+    margin-bottom: 1em;
+  }
+}
+
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .Professionals {
@@ -108,7 +139,7 @@ tr:nth-child(even) {
     width: 50%;
     margin-bottom: 20px;
   }
-  
+
   .Doctors {
     margin-right: 20px;
   }
