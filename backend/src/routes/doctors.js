@@ -6,6 +6,7 @@ const router = Router();
 // Get all doctors
 router.get('/', (req, res) => {
   Doctor.find()
+    .sort({ name: 'asc' })
     .then(doctors => res.json(doctors))
     .catch(err => res.status(400).json(err));
 });
