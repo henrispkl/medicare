@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import styles from './NewJobs.module.css';
 import Job from '../../components/Job/Job';
@@ -15,8 +15,7 @@ const NewJobs = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:4000/jobs')
+    API.get('http://localhost:4000/jobs')
       .then(res => {
         setJobs(res.data);
         setLoaded(true);
@@ -42,7 +41,7 @@ const NewJobs = () => {
         <h1>New Jobs</h1>
         <Link className={styles.AddJobButton} to="/jobs/add">
           <PrimaryButton>
-            <i class="fas fa-plus-square"></i> Create a new job
+            <i className="fas fa-plus-square"></i> Create a new job
           </PrimaryButton>
         </Link>
       </div>

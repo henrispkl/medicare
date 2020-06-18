@@ -3,6 +3,7 @@
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 0 10px rgb(241, 241, 241);
+  position: relative;
 }
 
 .FormRow {
@@ -15,6 +16,20 @@
 
 .SubmitButton {
   margin-left: auto;
+}
+
+.SpinnerContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  border-radius: 3px;
 }
 
 /* Medium devices (tablets, 768px and up) */

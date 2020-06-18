@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import API from '../../utils/API';
 import Page from '../../components/Page/Page';
 import styles from './Professionals.module.css';
 import DoctorImg from '../../assets/images/doctor.jpg';
@@ -13,8 +13,7 @@ const Professionals = () => {
   const [loadedNurses, setLoadedNurses] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:4000/doctors')
+    API.get('http://localhost:4000/doctors')
       .then(res => {
         setDoctors(res.data);
         setLoadedDoctors(true);
@@ -23,8 +22,7 @@ const Professionals = () => {
         console.log(err);
       });
 
-    axios
-      .get('http://localhost:4000/nurses')
+    API.get('http://localhost:4000/nurses')
       .then(res => {
         setNurses(res.data);
         setLoadedNurses(true);

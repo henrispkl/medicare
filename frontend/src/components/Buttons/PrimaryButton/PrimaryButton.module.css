@@ -15,3 +15,7 @@
 .PrimaryButton:hover {
   background-color: rgb(117, 128, 231);
 }
+
+.PrimaryButton i {
+  margin-right: 5px;
+}
