@@ -28,4 +28,5 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
 * Button to remove a professional
 * Backend: JWT authentication
 * Frontend: JWT authentication
-⋅⋅⋅ Implement Redux in the front-end?
+
+   * Implement Redux in the front-end?
