@@ -128,7 +128,7 @@ const Professionals = () => {
               to="/professionals/add"
             >
               <PrimaryButton>
-                <i className="fas fa-plus-square"></i> Add a doctor
+                <i className="fas fa-user-md"></i> Add a doctor
               </PrimaryButton>
             </Link>
           </div>
@@ -143,7 +143,7 @@ const Professionals = () => {
               to="/professionals/add"
             >
               <PrimaryButton>
-                <i className="fas fa-plus-square"></i> Add a nurse
+                <i className="fas fa-user-nurse"></i> Add a nurse
               </PrimaryButton>
             </Link>
           </div>
