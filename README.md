@@ -19,3 +19,13 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
     cd frontend/
     npm install
     npm start
+
+## Roadmap
+
+* Page to add professionals (doctors and nurses)
+* Page to view a single job
+* Button to remove a job
+* Button to remove a professional
+* Backend: JWT authentication
+* Frontend: JWT authentication
+⋅⋅⋅ Implement Redux in the front-end?
