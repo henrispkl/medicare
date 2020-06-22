@@ -22,7 +22,6 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
 
 ## Roadmap
 
-* Page to add professionals (doctors and nurses)
 * Page to view a single job
 * Button to remove a job
 * Button to remove a professional
