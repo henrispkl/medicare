@@ -1,0 +1,91 @@
+.Form {
+  padding: 40px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgb(241, 241, 241);
+  position: relative;
+}
+
+.FormRow {
+  margin-bottom: 40px;
+}
+
+.SubmitButton {
+  margin-left: auto;
+}
+
+.SpinnerContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  border-radius: 3px;
+}
+
+.TypeSelect {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.Type {
+  padding: 20px;
+  border: 1px solid rgb(161, 169, 238);
+  color: rgb(161, 169, 238);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 175px;
+  height: 175px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Type.Active, .Type:hover {
+  border-color: transparent;
+  background-color: rgb(161, 169, 238);
+  color: white;
+}
+
+.Type + .Type {
+  margin-left: 20px;
+}
+
+.Icon {
+  font-size: 60px;
+}
+
+.TypeText {
+  font-size: 1.5em;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .FormRow {
+    display: flex;
+  }
+
+  .Input100 {
+    width: 100%;
+  }
+
+  .Input75 {
+    width: 75%;
+  }
+
+  .Input50 {
+    width: 50%;
+  }
+
+  .Input25 {
+    width: 25%;
+  }
+}

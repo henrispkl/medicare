@@ -125,7 +125,7 @@ const Professionals = () => {
             <h1>Doctors</h1>
             <Link
               className={styles.AddProfessionalButton}
-              to="/professionals/add"
+              to="/professionals/add#doctor"
             >
               <PrimaryButton>
                 <i className="fas fa-user-md"></i> Add a doctor
@@ -140,7 +140,7 @@ const Professionals = () => {
             <h1>Nurses</h1>
             <Link
               className={styles.AddProfessionalButton}
-              to="/professionals/add"
+              to="/professionals/add#nurse"
             >
               <PrimaryButton>
                 <i className="fas fa-user-nurse"></i> Add a nurse

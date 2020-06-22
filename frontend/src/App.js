@@ -10,6 +10,7 @@ import MobileBar from './components/MobileBar/MobileBar';
 import NewJobs from './pages/NewJobs/NewJobs';
 import Professionals from './pages/Professionals/Professionals';
 import AddJob from './pages/AddJob/AddJob';
+import AddProfessional from './pages/AddProfessional/AddProfessional';
 
 const App = () => {
   const [viewBar, setViewBar] = useState(false);
@@ -29,8 +30,9 @@ const App = () => {
         <MobileBar displayBar={displayBar} />
         <Switch>
           <Route path="/" exact={true} component={NewJobs} />
-          <Route path="/professionals" component={Professionals} />
           <Route path="/jobs/add" component={AddJob} />
+          <Route path="/professionals/add" component={AddProfessional} />
+          <Route path="/professionals" component={Professionals} />
         </Switch>
       </div>
     </BrowserRouter>
