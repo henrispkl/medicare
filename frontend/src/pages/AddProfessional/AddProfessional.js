@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Page from '../../components/Page/Page';
 import API from '../../utils/API';
 import styles from './AddProfessional.module.css';
@@ -12,6 +13,7 @@ const AddProfessional = props => {
   const [professionalType, setProfessionalType] = useState('doctor');
   const doctorButtonRef = useRef(null);
   const nurseButtonRef = useRef(null);
+  const history = useHistory();
 
   const formInputChange = e => {
     const inputId = e.target.id;
@@ -40,7 +42,8 @@ const AddProfessional = props => {
     API.post(url, formData)
       .then(res => {
         setUploading(false);
-        console.log(res);
+
+        history.push('/professionals');
       })
       .catch(err => {
         console.log(err.response.data);
