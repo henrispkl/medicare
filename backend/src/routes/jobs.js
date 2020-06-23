@@ -26,12 +26,11 @@ router.post('/add', (req, res) => {
     description: req.body.description
   });
 
-  console.log(req.body);
-
-  job
-    .save()
-    .then(() => res.json('Job created!'))
-    .catch(err => res.status(400).json(err));
+  if (req.body.name.length)
+    job
+      .save()
+      .then(result => res.json({ msg: 'Job created!', result }))
+      .catch(err => res.status(400).json(err));
 });
 
 // View a specific job
