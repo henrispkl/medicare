@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './MenuList.module.css';
 
 import MenuItem from './MenuItem/MenuItem';
-const data = require('../../../data.json');
-const professionalsNumber = data.doctors.length + data.nurses.length;
+const professionalsNumber = '20';
 
 const MenuList = props => {
   return (
