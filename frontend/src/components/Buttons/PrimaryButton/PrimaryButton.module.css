@@ -19,3 +19,9 @@
 .PrimaryButton i {
   margin-right: 5px;
 }
+
+.PrimaryButton.Inactive {
+  opacity: .5;
+  cursor: default;
+  pointer-events: none;
+}

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './JobModal.module.css';
+import Spinner from '../Spinner/Spinner';
+import API from '../../utils/API';
+import { useHistory } from 'react-router-dom';
 
 const JobModal = props => {
+  const history = useHistory();
   let jobData;
+  const [deleting, setDeleting] = useState(false);
+
   if (props.data) {
     jobData = { ...props.data };
   } else {
@@ -21,13 +27,34 @@ const JobModal = props => {
     };
   }
 
+  const deleteJob = () => {
+    setDeleting(true);
+    API.delete('/jobs/' + jobData._id)
+      .then(res => {
+        setDeleting(false);
+        history.go();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className={props.viewState ? '' : styles.Hidden}>
       <div className={styles.Bg} onClick={props.hide}></div>
       <div className={styles.Window}>
         <div className={styles.Frame}>
-          <div className={styles.CloseButton} onClick={props.hide}>
-            <i className="fas fa-times"></i>
+          <div className={styles.Actions}>
+            <div className={styles.DeleteButton} onClick={deleteJob}>
+              {deleting ? (
+                <Spinner spinner2 />
+              ) : (
+                <i className="fas fa-trash-alt"></i>
+              )}
+            </div>
+            <div className={styles.CloseButton} onClick={props.hide}>
+              <i className="fas fa-times"></i>
+            </div>
           </div>
           <div className={styles.Id}>ID: {jobData._id}</div>
           <div className={styles.Name}>

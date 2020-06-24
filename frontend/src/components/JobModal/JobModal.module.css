@@ -49,18 +49,33 @@
   font-size: 0.9em;
 }
 
-.CloseButton {
+.Actions {
   position: absolute;
+  display: flex;
   top: 0;
   right: 0;
   font-size: 1.5em;
+}
+
+.CloseButton {
   cursor: pointer;
   transition: color 0.3s ease;
   color: rgb(199, 199, 199);
+  margin-left: 20px;
 }
 
 .CloseButton:hover {
   color: black;
+}
+
+.DeleteButton {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #f3a8a0;
+}
+
+.DeleteButton:hover {
+  color: #e74c3c;
 }
 
 .Name {

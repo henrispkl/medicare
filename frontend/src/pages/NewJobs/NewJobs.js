@@ -15,7 +15,7 @@ const NewJobs = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    API.get('http://localhost:4000/jobs')
+    API.get('/jobs')
       .then(res => {
         setJobs(res.data);
         setLoaded(true);

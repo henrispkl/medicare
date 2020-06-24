@@ -15,12 +15,12 @@ const jobSchema = new moongose.Schema(
       type: String,
       required: true
     },
-    location: String,
-    dates: String,
-    workingHours: String,
-    workingDays: String,
-    contractType: String,
-    shiftType: String,
+    location: { type: String, required: true },
+    dates: { type: String, required: true },
+    workingHours: { type: String, required: true },
+    workingDays: { type: String, required: true },
+    contractType: { type: String, required: true },
+    shiftType: { type: String, required: true },
     description: String
   },
   {
