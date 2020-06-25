@@ -11,6 +11,7 @@ import NewJobs from './pages/NewJobs/NewJobs';
 import Professionals from './pages/Professionals/Professionals';
 import AddJob from './pages/AddJob/AddJob';
 import AddProfessional from './pages/AddProfessional/AddProfessional';
+import Job from './pages/Job/Job';
 
 const App = () => {
   const [viewBar, setViewBar] = useState(false);
@@ -31,6 +32,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact={true} component={NewJobs} />
           <Route path="/jobs/add" component={AddJob} />
+          <Route path="/job/:jobId" component={Job} />
           <Route path="/professionals/add" component={AddProfessional} />
           <Route path="/professionals" component={Professionals} />
         </Switch>

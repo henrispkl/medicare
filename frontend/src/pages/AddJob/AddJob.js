@@ -5,8 +5,10 @@ import styles from './AddJob.module.css';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import SubmitButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
 import Spinner from '../../components/Spinner/Spinner';
+import { useHistory } from 'react-router-dom';
 
 const NewJob = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({});
   const [uploading, setUploading] = useState(false);
 
@@ -22,7 +24,7 @@ const NewJob = () => {
     API.post('/jobs/add', formData)
       .then(res => {
         setUploading(false);
-        console.log(res);
+        history.push(`/job/${res.data.result._id}`);
       })
       .catch(err => {
         console.log(err.response);

@@ -1,0 +1,27 @@
+.Container {
+  display: flex;
+}
+
+.Job {
+  padding: 40px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgb(241, 241, 241);
+  position: relative;
+  width: 70%;
+}
+
+.Actions {
+  color: rgb(121, 123, 141);
+  padding-left: 40px;
+}
+
+.DeleteJob {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #f3a8a0;
+}
+
+.DeleteJob:hover {
+  color: #e74c3c;
+}

@@ -1,0 +1,138 @@
+.Job {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: rgb(121, 123, 141);
+}
+
+.Id {
+  font-size: 0.9em;
+}
+
+.Actions {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  font-size: 1.5em;
+}
+
+.CloseButton {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: rgb(199, 199, 199);
+  margin-left: 20px;
+}
+
+.CloseButton:hover {
+  color: black;
+}
+
+.Name {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.Name h2 {
+  color: black;
+  font-weight: bold;
+  margin: 0;
+}
+
+.JobType {
+  padding: 5px 10px;
+  background-color: rgb(243, 243, 243);
+  display: inline-block;
+  border-radius: 3px;
+  box-shadow: 0 0 0px 2px rgb(230, 230, 230);
+  margin-top: 15px;
+  color: black;
+}
+
+.Info {
+  margin-top: 30px;
+}
+
+.InfoRow {
+  display: flex;
+  margin-top: 15px;
+}
+
+.Label {
+  min-width: 40%;
+  display: flex;
+  text-transform: uppercase;
+  position: relative;
+  height: 26px;
+}
+
+.Label::before {
+  content: '';
+  height: 1px;
+  border-bottom: 2px dotted rgb(230, 230, 230);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+}
+
+.LabelName {
+  background-color: white;
+  z-index: 10;
+  padding-right: 10px;
+  font-size: 0.9em;
+}
+
+.LabelValue {
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.LabelValue i {
+  margin-right: 10px;
+  width: 15px;
+}
+
+.DescName {
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.DescContent {
+  margin-top: 15px;
+}
+
+.Apply {
+  background-color: rgb(161, 169, 238);
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border: 1px solid rgb(161, 169, 238);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.Apply:hover {
+  background-color: rgb(117, 128, 231);
+}
+
+@media (min-width: 992px) {
+  .DescContent {
+    overflow-y: auto;
+    max-height: 220px;
+  }
+
+  .Apply {
+    position: absolute;
+    bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
