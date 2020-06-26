@@ -22,8 +22,6 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
 
 ## Roadmap
 
-* Page to view a single job
-* Button to remove a professional
 * Backend: JWT authentication
 * Frontend: JWT authentication
 
