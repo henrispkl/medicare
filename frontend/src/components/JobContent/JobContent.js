@@ -11,8 +11,13 @@ const JobContent = props => {
   };
 
   const buttonStyle = {
-    marginTop: props.hide ? '0' : '20px',
-    position: props.hide ? 'absolute' : 'relative'
+    marginTop: '20px',
+    position: 'relative'
+  };
+
+  const descStyle = {
+    maxHeight: 'none',
+    overflowY: 'none'
   };
 
   return (
@@ -89,7 +94,9 @@ const JobContent = props => {
           </div>
         </div>
         <div className={styles.DescName}>Description</div>
-        <div className={styles.DescContent}>{jobData.description}</div>
+        <div className={styles.DescContent} style={props.full ? descStyle : {}}>
+          {jobData.description}
+        </div>
       </div>
       <div className={styles.Apply} style={props.full ? buttonStyle : {}}>
         Apply

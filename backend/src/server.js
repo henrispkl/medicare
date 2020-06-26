@@ -17,6 +17,7 @@ app.use(cors());
 app.use('/jobs', routes.jobs);
 app.use('/doctors', routes.doctors);
 app.use('/nurses', routes.nurses);
+app.use('/stats', routes.stats);
 
 // Mongoose
 mongoose.set('useUnifiedTopology', true);

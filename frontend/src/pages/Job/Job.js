@@ -18,7 +18,7 @@ const Job = props => {
       setJobData(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [jobId]);
 
   const deleteJob = () => {
     setDeleting(true);
@@ -35,7 +35,9 @@ const Job = props => {
   return (
     <Page>
       {loading ? (
-        <Spinner />
+        <div className={styles.SpinnerContainer}>
+          <Spinner />
+        </div>
       ) : (
         <div className={styles.Container}>
           <div className={styles.Job}>

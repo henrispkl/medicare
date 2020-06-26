@@ -7,8 +7,8 @@ const router = Router();
 router.get('/', (req, res) => {
   Job.find()
     .sort({ createdAt: 'desc' })
-    .then(jobs => res.json(jobs))
-    .catch(err => res.status(400).json(err));
+    .then((jobs) => res.json(jobs))
+    .catch((err) => res.status(400).json(err));
 });
 
 // Add a job
@@ -23,29 +23,28 @@ router.post('/add', (req, res) => {
     workingDays: req.body.workingDays,
     contractType: req.body.contractType,
     shiftType: req.body.shiftType,
-    description: req.body.description
+    description: req.body.description,
   });
 
   if (req.body.name.length)
     job
       .save()
-      .then(result => res.json({ msg: 'Job created!', result }))
-      .catch(err => res.status(400).json(err));
+      .then((result) => res.json({ msg: 'Job created!', result }))
+      .catch((err) => res.status(400).json(err));
 });
 
 // View a specific job
 router.get('/:id', (req, res) => {
   Job.findById(req.params.id)
-    .then(job => res.json(job))
-    .catch(err => res.status(400).json(err));
+    .then((job) => res.json(job))
+    .catch((err) => res.status(400).json(err));
 });
 
 // Delete a job
 router.delete('/:id', (req, res) => {
   Job.findByIdAndDelete(req.params.id)
     .then(() => res.json('Job deleted!'))
-    .catch(err => res.status(400).json(err));
+    .catch((err) => res.status(400).json(err));
 });
 
-// router.delete('/')
 export default router;

@@ -60,6 +60,7 @@
 
 .Label {
   min-width: 40%;
+  max-width: 100px;
   display: flex;
   text-transform: uppercase;
   position: relative;

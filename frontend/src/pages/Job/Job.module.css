@@ -2,6 +2,14 @@
   display: flex;
 }
 
+.SpinnerContainer {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Job {
   padding: 40px;
   background-color: white;

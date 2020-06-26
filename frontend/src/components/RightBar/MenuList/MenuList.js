@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MenuList.module.css';
+import API from '../../../utils/API';
 
 import MenuItem from './MenuItem/MenuItem';
-const professionalsNumber = '20';
 
-const MenuList = props => {
+const MenuList = (props) => {
+  const [professionalsNumber, setProfessionalsNumber] = useState(0);
+
+  useEffect(() => {
+    API.get('/stats/professionals').then((res) => {
+      setProfessionalsNumber(res.data.count);
+    });
+  }, []);
+
   return (
     <div className={styles.MenuList}>
       <MenuItem
