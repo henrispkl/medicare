@@ -1,9 +1,7 @@
 import React from 'react';
 import styles from './JobContent.module.css';
-import { useHistory } from 'react-router-dom';
 
 const JobContent = (props) => {
-  const history = useHistory();
   const jobData = props.data;
 
   const buttonStyle = {

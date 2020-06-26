@@ -37,6 +37,10 @@ a:visited {
   color: rgb(75, 83, 158);
 }
 
+a:visited:hover {
+  color: rgb(117, 128, 231);
+}
+
 input:focus,
 textarea:focus {
   border-bottom-color: rgb(161, 169, 238);

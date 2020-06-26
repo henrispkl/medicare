@@ -107,6 +107,7 @@
 
 .DescContent {
   margin-top: 15px;
+  white-space: pre-wrap;
 }
 
 .Apply {
