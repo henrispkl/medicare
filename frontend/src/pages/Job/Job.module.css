@@ -1,5 +1,6 @@
 .Container {
   display: flex;
+  flex-direction: column;
 }
 
 .SpinnerContainer {
@@ -16,12 +17,13 @@
   border-radius: 3px;
   box-shadow: 0 0 10px rgb(241, 241, 241);
   position: relative;
-  width: 70%;
+  width: 100%;
 }
 
 .Actions {
   color: rgb(121, 123, 141);
-  padding-left: 40px;
+  width: 100%;
+  padding-top: 40px;
 }
 
 .DeleteJob {
@@ -32,4 +34,20 @@
 
 .DeleteJob:hover {
   color: #e74c3c;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .Container {
+    flex-direction: row;
+  }
+
+  .Job {
+    width: 70%;
+  }
+
+  .Actions {
+    width: 30%;
+    padding-left: 40px;
+  }
 }
