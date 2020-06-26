@@ -39,6 +39,11 @@
   margin: 0;
 }
 
+.LinkIcon {
+  margin-right: 10px;
+  font-size: 0.8em;
+}
+
 .JobType {
   padding: 5px 10px;
   background-color: rgb(243, 243, 243);

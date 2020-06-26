@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './Job.module.css';
 
-const Job = props => {
+const Job = (props) => {
   return (
     <div className={styles.Job}>
       <div className={styles.Info}>
-        <div className={styles.JobName}>{props.data.name}</div>
+        <a className={styles.JobName} href={`/job/${props.data._id}`}>
+          {props.data.name}
+        </a>
         <div className={styles.JobType}>{props.data.jobType}</div>
       </div>
       <div className={styles.SecondInfo}>

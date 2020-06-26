@@ -2,22 +2,18 @@ import React from 'react';
 import styles from './JobContent.module.css';
 import { useHistory } from 'react-router-dom';
 
-const JobContent = props => {
+const JobContent = (props) => {
   const history = useHistory();
   const jobData = props.data;
 
-  const viewJobPage = () => {
-    history.push(`/job/${jobData._id}`);
-  };
-
   const buttonStyle = {
     marginTop: '20px',
-    position: 'relative'
+    position: 'relative',
   };
 
   const descStyle = {
     maxHeight: 'none',
-    overflowY: 'none'
+    overflowY: 'none',
   };
 
   return (
@@ -31,7 +27,20 @@ const JobContent = props => {
       </div>
       <div className={styles.Id}>ID: {jobData._id}</div>
       <div className={styles.Name}>
-        <h2 onClick={viewJobPage}>{jobData.name}</h2>
+        <h2>
+          {props.full ? (
+            jobData.name
+          ) : (
+            <a href={`/job/${jobData._id}`}>
+              <i
+                className={[styles.LinkIcon, 'fas fa-external-link-alt'].join(
+                  ' '
+                )}
+              ></i>
+              {jobData.name}
+            </a>
+          )}
+        </h2>
         <div className={styles.JobType}>{jobData.jobType}</div>
       </div>
 
