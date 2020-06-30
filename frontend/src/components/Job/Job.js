@@ -5,7 +5,14 @@ const Job = (props) => {
   return (
     <div className={styles.Job}>
       <div className={styles.Info}>
-        <a className={styles.JobName} href={`/job/${props.data._id}`}>
+        <a
+          className={styles.JobName}
+          href={`/job/${props.data._id}`}
+          onClick={(e) => {
+            e.preventDefault();
+            props.click(props.data);
+          }}
+        >
           {props.data.name}
         </a>
         <div className={styles.JobType}>{props.data.jobType}</div>
