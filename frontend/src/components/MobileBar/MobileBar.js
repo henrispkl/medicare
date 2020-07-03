@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MobileBar.module.css';
 import { connect } from 'react-redux';
-import appActions from '../../reducers/appReducer/appActions';
+import appActions from '../../store/actions/appActions';
 
 import ToggleMenu from './ToggleMenu/ToggleMenu';
 import Logo from '../Logo/Logo';

@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import MenuList from './MenuList/MenuList';
 import { connect } from 'react-redux';
-import appActions from '../../reducers/appReducer/appActions';
+import appActions from '../../store/actions/appActions';
 
 import styles from './RightBar.module.css';
 
