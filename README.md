@@ -22,7 +22,6 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
 
 ## Roadmap
 
-* Implement Redux in the front-end
 * Backend: JWT authentication
 * Register and login page
 * Frontend: JWT authentication
