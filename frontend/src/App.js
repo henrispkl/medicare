@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styles from './App.module.css';
 
@@ -14,21 +14,11 @@ import AddProfessional from './pages/AddProfessional/AddProfessional';
 import Job from './pages/Job/Job';
 
 const App = () => {
-  const [viewBar, setViewBar] = useState(false);
-
-  const displayBar = () => {
-    setViewBar(true);
-  };
-
-  const hideBar = () => {
-    setViewBar(false);
-  };
-
   return (
     <BrowserRouter>
       <div className={styles.App}>
-        <RightBar viewBar={viewBar} hideBar={hideBar} />
-        <MobileBar displayBar={displayBar} />
+        <RightBar />
+        <MobileBar />
         <Switch>
           <Route path="/" exact={true} component={NewJobs} />
           <Route path="/jobs/add" component={AddJob} />
