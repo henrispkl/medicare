@@ -18,6 +18,7 @@ app.use('/jobs', routes.jobs);
 app.use('/doctors', routes.doctors);
 app.use('/nurses', routes.nurses);
 app.use('/stats', routes.stats);
+app.use('/users', routes.users);
 
 // Mongoose
 mongoose.set('useUnifiedTopology', true);

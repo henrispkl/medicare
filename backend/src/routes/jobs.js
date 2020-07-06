@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import Job from '../models/job';
+import authMiddleware from '../middleware/auth';
 
 const router = Router();
 
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 // Add a job
-router.post('/add', (req, res) => {
+router.post('/add', authMiddleware, (req, res) => {
   const job = new Job({
     name: req.body.name,
     jobType: req.body.jobType,
@@ -41,7 +42,7 @@ router.get('/:id', (req, res) => {
 });
 
 // Delete a job
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authMiddleware, (req, res) => {
   Job.findByIdAndDelete(req.params.id)
     .then(() => res.json('Job deleted!'))
     .catch((err) => res.status(400).json(err));
