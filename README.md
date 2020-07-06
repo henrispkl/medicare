@@ -22,6 +22,7 @@ It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the Mo
 
 ## Roadmap
 
-* Backend: JWT authentication
+* Edit job page
+* Edit nurse/doctor page
 * Register and login page
 * Frontend: JWT authentication
