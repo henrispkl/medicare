@@ -5,15 +5,15 @@ const jobSchema = new moongose.Schema(
     name: {
       type: String,
       required: true,
-      minlength: 5
+      minlength: 5,
     },
     jobType: {
       type: String,
-      required: true
+      required: true,
     },
     institution: {
       type: String,
-      required: true
+      required: true,
     },
     location: { type: String, required: true },
     dates: { type: String, required: true },
@@ -21,10 +21,14 @@ const jobSchema = new moongose.Schema(
     workingDays: { type: String, required: true },
     contractType: { type: String, required: true },
     shiftType: { type: String, required: true },
-    description: String
+    description: String,
+    postedBy: {
+      type: moongose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
