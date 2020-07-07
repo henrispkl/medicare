@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import MenuList from './MenuList/MenuList';
 import { connect } from 'react-redux';
-import appActions from '../../store/actions/appActions';
+import { setViewbar } from '../../store/actions/appActions';
 
 import styles from './RightBar.module.css';
 
@@ -14,7 +14,7 @@ const RightBar = (props) => {
   }
 
   const hideBar = () => {
-    props.dispatch(appActions.setViewbar(false));
+    props.dispatch(setViewbar(false));
   };
 
   return (
@@ -35,4 +35,4 @@ const RightBar = (props) => {
   );
 };
 
-export default connect((store) => ({ viewBar: store.viewBar }))(RightBar);
+export default connect((store) => ({ viewBar: store.app.viewBar }))(RightBar);

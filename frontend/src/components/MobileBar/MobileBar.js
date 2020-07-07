@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './MobileBar.module.css';
 import { connect } from 'react-redux';
-import appActions from '../../store/actions/appActions';
+import { setViewbar } from '../../store/actions/appActions';
 
 import ToggleMenu from './ToggleMenu/ToggleMenu';
 import Logo from '../Logo/Logo';
 
 const MobileBar = (props) => {
   const displayBar = () => {
-    props.dispatch(appActions.setViewbar(true));
+    props.dispatch(setViewbar(true));
   };
 
   return (
@@ -19,4 +19,4 @@ const MobileBar = (props) => {
   );
 };
 
-export default connect((store) => ({ viewBar: store.viewBar }))(MobileBar);
+export default connect((store) => ({ viewBar: store.app.viewBar }))(MobileBar);

@@ -1,9 +1,5 @@
-import { SET_VIEWBAR } from './actionTypes';
+import { SET_VIEWBAR } from './types';
 
-const setViewbar = (value) => {
-  return { type: SET_VIEWBAR, payload: value };
-};
-
-export default {
-  setViewbar,
+export const setViewbar = (visibility) => {
+  return { type: SET_VIEWBAR, payload: visibility };
 };

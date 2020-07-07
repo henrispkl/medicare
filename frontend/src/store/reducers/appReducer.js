@@ -1,4 +1,4 @@
-import { SET_VIEWBAR } from '../actions/actionTypes';
+import { SET_VIEWBAR } from '../actions/types';
 
 const initialState = { viewBar: false };
 
