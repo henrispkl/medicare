@@ -1,0 +1,24 @@
+{
+  "name": "medicare",
+  "version": "1.0.0",
+  "description": "A simple MERN project for a fictional job platform for heathcare workers.",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently 'cd backend && npm run start' 'cd frontend && npm run start'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrispkl/medicare.git"
+  },
+  "author": "henri_spkl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henrispkl/medicare/issues"
+  },
+  "homepage": "https://github.com/henrispkl/medicare#readme"
+}
