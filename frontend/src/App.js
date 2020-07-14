@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styles from './App.module.css';
 
@@ -6,17 +6,27 @@ import styles from './App.module.css';
 import RightBar from './components/RightBar/RightBar';
 import MobileBar from './components/MobileBar/MobileBar';
 
+// Redux
+import { connect } from 'react-redux';
+import { loadUser } from './store/actions/authActions';
+
 // Pages
 import NewJobs from './pages/NewJobs/NewJobs';
 import Professionals from './pages/Professionals/Professionals';
 import AddJob from './pages/AddJob/AddJob';
 import AddProfessional from './pages/AddProfessional/AddProfessional';
 import Job from './pages/Job/Job';
+import AuthModal from './components/AuthModal/AuthModal';
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    props.dispatch(loadUser());
+  }, [props]);
+
   return (
     <BrowserRouter>
       <div className={styles.App}>
+        <AuthModal />
         <RightBar />
         <MobileBar />
         <Switch>
@@ -31,4 +41,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default connect()(App);

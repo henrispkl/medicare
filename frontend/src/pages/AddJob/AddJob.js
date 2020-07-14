@@ -140,7 +140,7 @@ const NewJob = () => {
               ></textarea>
             </InputContainer>
           </div>
-          <SubmitButton className={styles.SubmitButton} click={submitForm}>
+          <SubmitButton className={styles.SubmitButton} onClick={submitForm}>
             <i className="fas fa-check"></i> Submit
           </SubmitButton>
         </div>
