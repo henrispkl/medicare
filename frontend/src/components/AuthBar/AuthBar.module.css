@@ -1,0 +1,14 @@
+.AuthBar {
+  display: flex;
+  padding: 20px;
+}
+
+.Link {
+  color: rgb(161, 169, 238);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.Link:hover {
+  color: rgb(117, 128, 231);
+}
