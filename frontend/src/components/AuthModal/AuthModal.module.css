@@ -115,14 +115,22 @@
   align-self: flex-end;
 }
 
+.FormInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
 .Link {
   color: rgb(161, 169, 238);
   cursor: pointer;
-  margin-top: 20px;
   transition: color 0.3s ease;
-  align-self: flex-start;
 }
 
 .Link:hover {
   color: rgb(117, 128, 231);
+}
+
+.ErrorMessage {
+  color: #e74c3c;
 }

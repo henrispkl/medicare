@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { connect } from 'react-redux';
 import styles from './AuthModal.module.css';
 import InputContainer from '../InputContainer/InputContainer';
 import Submit from '../Buttons/PrimaryButton/PrimaryButton';
+import { setAuthModal } from '../../store/actions/appActions';
+import { register } from '../../store/actions/authActions';
+import { clearErrors } from '../../store/actions/errorActions';
 
 const AuthModal = (props) => {
   const [formData, setFormData] = useState({
@@ -9,8 +13,9 @@ const AuthModal = (props) => {
     email: '',
     password: '',
   });
-  const [visibility] = useState(props.visibility);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [containerClasses, setContainerClasses] = useState([styles.Container]);
+  const bgRef = useRef(null);
 
   // Form data handlers
   const handleEmail = (e) => {
@@ -25,6 +30,57 @@ const AuthModal = (props) => {
     setFormData({ ...formData, name: e.target.value });
   };
 
+  const closeModal = () => {
+    props.dispatch(setAuthModal(false));
+
+    setTimeout(() => {
+      // clear error messages
+      setErrorMessage(null);
+      props.dispatch(clearErrors());
+
+      // Reset to login page
+      showLoginPage();
+    }, 500);
+  };
+
+  const bgClickHandler = (e) => {
+    if (bgRef.current && e.target === bgRef.current) {
+      closeModal();
+    }
+  };
+
+  // Auth handlers
+  const registerUser = () => {
+    const { name, email, password } = formData;
+
+    // Create user object
+    const newUser = {
+      name,
+      email,
+      password,
+    };
+
+    // Attempt to register
+    props.dispatch(register(newUser));
+  };
+
+  // Show error message on props.error changes
+  useEffect(() => {
+    const error = props.error;
+    if (error.id && error.id === 'REGISTER_FAIL') {
+      setErrorMessage(error.msg.msg);
+    } else {
+      setErrorMessage(null);
+    }
+  }, [props.error]);
+
+  // Close modal on authentication
+  useEffect(() => {
+    if (props.isAuthenticated) {
+      closeModal();
+    }
+  }, [props.isAuthenticated]);
+
   // Transition handlers
   const showRegisterPage = () => {
     setContainerClasses([...containerClasses, styles.registerPage]);
@@ -37,15 +93,17 @@ const AuthModal = (props) => {
   return (
     <div
       className={
-        visibility
+        props.visibility
           ? [styles.Bg, styles.visible].join(' ')
           : [styles.Bg].join(' ')
       }
+      ref={bgRef}
+      onClick={bgClickHandler}
     >
       <div className={styles.AuthModal}>
         <div className={styles.BoxDetail}></div>
         <div className={styles.Content}>
-          <div className={styles.Close}>
+          <div className={styles.Close} onClick={closeModal}>
             <i className="far fa-window-close"></i>
           </div>
           <div className={containerClasses.join(' ')}>
@@ -70,8 +128,10 @@ const AuthModal = (props) => {
                   onChange={handlePassword}
                 />
               </InputContainer>
-              <div className={styles.Link} onClick={showRegisterPage}>
-                Create a new account
+              <div className={styles.FormInfo}>
+                <div className={styles.Link} onClick={showRegisterPage}>
+                  Create a new account
+                </div>
               </div>
               <Submit className={styles.SubmitButton}>Login</Submit>
             </div>
@@ -105,10 +165,18 @@ const AuthModal = (props) => {
                   onChange={handlePassword}
                 />
               </InputContainer>
-              <div className={styles.Link} onClick={showLoginPage}>
-                Go back to login
+              <div className={styles.FormInfo}>
+                <div className={styles.Link} onClick={showLoginPage}>
+                  Go back to login
+                </div>
+                {errorMessage ? (
+                  <div className={styles.ErrorMessage}>{errorMessage}</div>
+                ) : null}
               </div>
-              <Submit className={styles.SubmitButton}>Register</Submit>
+
+              <Submit className={styles.SubmitButton} onClick={registerUser}>
+                Register
+              </Submit>
             </div>
           </div>
         </div>
@@ -117,4 +185,8 @@ const AuthModal = (props) => {
   );
 };
 
-export default AuthModal;
+export default connect((store) => ({
+  visibility: store.app.authModal,
+  isAuthenticated: store.auth.isAuthenticated,
+  error: store.err,
+}))(AuthModal);
