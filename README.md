@@ -6,19 +6,7 @@ A fictional freelancing platform for healthcare workers. It's my first project u
 
 ## How to run
 
-**Backend:**
-It needs a `.env` file with the parameters `PORT` and `DATABASE_URL` with the MongoDB connection string. Then, just nagivate to the folder, install the modules with `npm install` and start the project with the `npm start` command.
-
-    cd backend/
-    npm install
-    npm start
-
-
-**Frontend:** Same thing for the backend, just install everything with `npm install` then run the `npm start` command on the folder.
-
-    cd frontend/
-    npm install
-    npm start
+Simply run `npm install` on the root folder of the project and it will install all dependencies for both backend and frontend.
 
 ## Roadmap
 
