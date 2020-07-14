@@ -1,0 +1,128 @@
+.Bg {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.438);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 59;
+  transition: all 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.Bg.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.AuthModal {
+  background-color: white;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.068);
+}
+
+.AuthModal label {
+  display: none;
+}
+
+.BoxDetail {
+  width: 150px;
+  background: linear-gradient(rgb(214, 194, 252), rgb(161, 169, 238));
+  justify-self: flex-start;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.Content {
+  padding: 40px;
+  overflow: hidden;
+  width: 480px;
+  position: relative;
+}
+
+.Close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: rgb(199, 199, 199);
+}
+
+.Close:hover {
+  color: black;
+}
+
+.Container {
+  width: 200%;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  height: 248px;
+}
+
+.Container.registerPage {
+  transform: translateX(-400px);
+  height: 305px;
+}
+
+.Login {
+  width: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  transition: all 0.5s ease;
+}
+
+.Container.registerPage .Login {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.Register {
+  width: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  transition: all 0.5s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.Container.registerPage .Register {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Title {
+  width: 100%;
+}
+
+.Input {
+  margin: 0px !important;
+}
+
+.Input + .Input {
+  margin-top: 20px !important;
+}
+
+.SubmitButton {
+  margin: 0px;
+  align-self: flex-end;
+}
+
+.Link {
+  color: rgb(161, 169, 238);
+  cursor: pointer;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.Link:hover {
+  color: rgb(117, 128, 231);
+}
