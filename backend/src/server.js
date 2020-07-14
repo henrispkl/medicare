@@ -24,7 +24,10 @@ app.use('/users', routes.users);
 mongoose.set('useUnifiedTopology', true);
 
 const connectDb = () => {
-  return mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+  return mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  });
 };
 
 // Init server
