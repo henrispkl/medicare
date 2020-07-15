@@ -5,8 +5,10 @@ import JobContent from '../../components/JobContent/JobContent';
 import Spinner from '../../components/Spinner/Spinner';
 import API from '../../utils/API';
 import { useHistory, useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { tokenConfig } from '../../store/actions/authActions';
 
-const Job = props => {
+const Job = (props) => {
   const { jobId } = useParams();
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState(false);
@@ -14,7 +16,7 @@ const Job = props => {
   const history = useHistory();
 
   useEffect(() => {
-    API.get(`/jobs/${jobId}`).then(res => {
+    API.get(`/jobs/${jobId}`).then((res) => {
       setJobData(res.data);
       setLoading(false);
     });
@@ -22,12 +24,12 @@ const Job = props => {
 
   const deleteJob = () => {
     setDeleting(true);
-    API.delete(`/jobs/${jobId}`)
-      .then(res => {
+    API.delete(`/jobs/${jobId}`, tokenConfig(props.auth))
+      .then((res) => {
         setDeleting(false);
         history.push('/');
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -61,4 +63,6 @@ const Job = props => {
   );
 };
 
-export default Job;
+export default connect((store) => ({
+  auth: store.auth,
+}))(Job);

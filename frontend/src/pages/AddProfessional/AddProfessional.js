@@ -6,8 +6,10 @@ import styles from './AddProfessional.module.css';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import SubmitButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
 import Spinner from '../../components/Spinner/Spinner';
+import { connect } from 'react-redux';
+import { tokenConfig } from '../../store/actions/authActions';
 
-const AddProfessional = props => {
+const AddProfessional = (props) => {
   const [formData, setFormData] = useState({});
   const [uploading, setUploading] = useState(false);
   const [professionalType, setProfessionalType] = useState('doctor');
@@ -15,7 +17,7 @@ const AddProfessional = props => {
   const nurseButtonRef = useRef(null);
   const history = useHistory();
 
-  const formInputChange = e => {
+  const formInputChange = (e) => {
     const inputId = e.target.id;
     const content = e.target.value;
     setFormData({ ...formData, [inputId]: content });
@@ -39,13 +41,13 @@ const AddProfessional = props => {
       url = '/nurses/add';
     }
 
-    API.post(url, formData)
-      .then(res => {
+    API.post(url, formData, tokenConfig(props.auth))
+      .then((res) => {
         setUploading(false);
 
         history.push('/professionals');
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.response.data);
       });
   };
@@ -55,7 +57,7 @@ const AddProfessional = props => {
     nurseButtonRef.current.classList.remove(styles.Active);
   };
 
-  const selectType = e => {
+  const selectType = (e) => {
     let element = null;
 
     // Set element
@@ -138,7 +140,7 @@ const AddProfessional = props => {
               />
             </InputContainer>
           </div>
-          <SubmitButton className={styles.SubmitButton} click={submitForm}>
+          <SubmitButton className={styles.SubmitButton} onClick={submitForm}>
             <i className="fas fa-check"></i> Submit
           </SubmitButton>
         </div>
@@ -147,4 +149,6 @@ const AddProfessional = props => {
   );
 };
 
-export default AddProfessional;
+export default connect((store) => ({
+  auth: store.auth,
+}))(AddProfessional);

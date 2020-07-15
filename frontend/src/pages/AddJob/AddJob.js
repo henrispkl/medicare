@@ -6,13 +6,15 @@ import InputContainer from '../../components/InputContainer/InputContainer';
 import SubmitButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
 import Spinner from '../../components/Spinner/Spinner';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { tokenConfig } from '../../store/actions/authActions';
 
-const NewJob = () => {
+const NewJob = (props) => {
   const history = useHistory();
   const [formData, setFormData] = useState({});
   const [uploading, setUploading] = useState(false);
 
-  const formInputChange = e => {
+  const formInputChange = (e) => {
     const inputId = e.target.id;
     const content = e.target.value;
     setFormData({ ...formData, [inputId]: content });
@@ -21,12 +23,12 @@ const NewJob = () => {
   const submitForm = () => {
     setUploading(true);
 
-    API.post('/jobs/add', formData)
-      .then(res => {
+    API.post('/jobs/add', formData, tokenConfig(props.auth))
+      .then((res) => {
         setUploading(false);
         history.push(`/job/${res.data.result._id}`);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.response);
       });
   };
@@ -149,4 +151,6 @@ const NewJob = () => {
   );
 };
 
-export default NewJob;
+export default connect((store) => ({
+  auth: store.auth,
+}))(NewJob);

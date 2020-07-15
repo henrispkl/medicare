@@ -17,7 +17,7 @@ export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
 
-  API.get('/users/auth', tokenConfig(getState))
+  API.get('/users/auth', tokenConfig(getState().auth))
     .then((res) => dispatch({ type: USER_LOADED, payload: res.data }))
     .catch((err) => {
       dispatch(returnErrors(err.response.data, err.response.status));
@@ -79,9 +79,9 @@ export const logout = () => (dispatch) => {
 };
 
 // Setup config/header and token
-export const tokenConfig = (getState) => {
+export const tokenConfig = (authState) => {
   // Get token from localStorage
-  const token = getState().auth.token;
+  const token = authState.token;
 
   // Headers
   const config = {

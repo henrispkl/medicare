@@ -83,7 +83,6 @@ const AuthModal = (props) => {
 
   // Close modal
   const closeModal = useCallback(() => {
-    console.log('closeModal');
     props.dispatch(setAuthModal(false));
 
     // Clear error
@@ -96,7 +95,6 @@ const AuthModal = (props) => {
   // Close modal on authentication
   useEffect(() => {
     if (props.isAuthenticated) {
-      console.log('kek');
       closeModal();
     }
   }, [props.isAuthenticated, closeModal]);
