@@ -1,7 +1,8 @@
 .AuthBar {
   display: flex;
-  padding: 20px;
+  margin-bottom: 20px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .Link {
@@ -12,4 +13,32 @@
 
 .Link:hover {
   color: rgb(117, 128, 231);
+}
+
+.Link i {
+  margin-right: 5px;
+}
+
+.User {
+  display: flex;
+  align-items: center;
+}
+
+.UserIcon {
+  font-size: 2.5em;
+  background-color: rgb(255, 255, 255);
+  color: rgb(161, 169, 238);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.103);
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.UserName {
+  font-weight: bold;
+  margin-left: 10px;
+  color: rgb(121, 123, 141);
 }
