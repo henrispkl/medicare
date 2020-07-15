@@ -1,5 +1,5 @@
 import API from '../../utils/API';
-import { returnErrors } from './errorActions';
+import { clearErrors, returnErrors } from './errorActions';
 
 import {
   USER_LOADED,
@@ -43,12 +43,39 @@ export const register = ({ name, email, password }) => (dispatch) => {
       dispatch(
         returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
       );
+      dispatch({ type: REGISTER_FAIL });
+    });
+};
+
+// Login user
+export const login = ({ email, password }) => (dispatch) => {
+  // Headers
+  const config = {
+    headers: {
+      ContentType: 'application/json',
+    },
+  };
+
+  // Request body
+  const body = JSON.stringify({ email, password });
+
+  API.post('/users/login', body, config)
+    .then((res) => {
+      dispatch(clearErrors());
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch(
+        returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
+      );
+      dispatch({ type: LOGIN_FAIL });
     });
 };
 
 // Logout user
-export const logout = () => {
-  return { type: LOGOUT_SUCCESS };
+export const logout = () => (dispatch) => {
+  dispatch(clearErrors());
+  dispatch({ type: LOGOUT_SUCCESS });
 };
 
 // Setup config/header and token

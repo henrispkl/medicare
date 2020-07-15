@@ -15,13 +15,13 @@ const AuthBar = (props) => {
 
   return (
     <div className={styles.AuthBar}>
-      <div className={styles.Link} onClick={openAuthModal}>
-        Login/Register
-      </div>
-
-      {props.isAuthenticated && (
+      {props.isAuthenticated ? (
         <div className={styles.Link} onClick={logoutHandler}>
           Logout
+        </div>
+      ) : (
+        <div className={styles.Link} onClick={openAuthModal}>
+          Login/Register
         </div>
       )}
     </div>

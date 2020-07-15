@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import styles from './AuthModal.module.css';
 import InputContainer from '../InputContainer/InputContainer';
 import Submit from '../Buttons/PrimaryButton/PrimaryButton';
 import { setAuthModal } from '../../store/actions/appActions';
-import { register } from '../../store/actions/authActions';
-import { clearErrors } from '../../store/actions/errorActions';
+import { register, login } from '../../store/actions/authActions';
 
 const AuthModal = (props) => {
   const [formData, setFormData] = useState({
@@ -30,26 +29,19 @@ const AuthModal = (props) => {
     setFormData({ ...formData, name: e.target.value });
   };
 
-  const closeModal = () => {
-    props.dispatch(setAuthModal(false));
-
-    setTimeout(() => {
-      // clear error messages
-      setErrorMessage(null);
-      props.dispatch(clearErrors());
-
-      // Reset to login page
-      showLoginPage();
-    }, 500);
-  };
-
-  const bgClickHandler = (e) => {
-    if (bgRef.current && e.target === bgRef.current) {
-      closeModal();
-    }
-  };
-
   // Auth handlers
+  const loginUser = () => {
+    const { email, password } = formData;
+
+    // Create user object
+    const user = {
+      email,
+      password,
+    };
+
+    props.dispatch(login(user));
+  };
+
   const registerUser = () => {
     const { name, email, password } = formData;
 
@@ -67,27 +59,57 @@ const AuthModal = (props) => {
   // Show error message on props.error changes
   useEffect(() => {
     const error = props.error;
-    if (error.id && error.id === 'REGISTER_FAIL') {
-      setErrorMessage(error.msg.msg);
+    if (error.id) {
+      if (error.id === 'REGISTER_FAIL' || error.id === 'LOGIN_FAIL') {
+        setErrorMessage(error.msg.msg);
+      }
     } else {
       setErrorMessage(null);
     }
   }, [props.error]);
 
-  // Close modal on authentication
-  useEffect(() => {
-    if (props.isAuthenticated) {
-      closeModal();
-    }
-  }, [props.isAuthenticated]);
-
   // Transition handlers
   const showRegisterPage = () => {
+    setErrorMessage(null);
+    clearFormData();
     setContainerClasses([...containerClasses, styles.registerPage]);
   };
 
-  const showLoginPage = () => {
+  const showLoginPage = useCallback(() => {
+    setErrorMessage(null);
+    clearFormData();
     setContainerClasses([styles.Container]);
+  }, []);
+
+  // Close modal
+  const closeModal = useCallback(() => {
+    console.log('closeModal');
+    props.dispatch(setAuthModal(false));
+
+    // Clear error
+    setErrorMessage(null);
+
+    // Reset to login page
+    showLoginPage();
+  }, [props, showLoginPage]);
+
+  // Close modal on authentication
+  useEffect(() => {
+    if (props.isAuthenticated) {
+      console.log('kek');
+      closeModal();
+    }
+  }, [props.isAuthenticated, closeModal]);
+
+  // Clear form data
+  const clearFormData = () => {
+    setFormData({ name: '', email: '', password: '' });
+  };
+
+  const bgClickHandler = (e) => {
+    if (bgRef.current && e.target === bgRef.current) {
+      closeModal();
+    }
   };
 
   return (
@@ -132,8 +154,13 @@ const AuthModal = (props) => {
                 <div className={styles.Link} onClick={showRegisterPage}>
                   Create a new account
                 </div>
+                {errorMessage ? (
+                  <div className={styles.ErrorMessage}>{errorMessage}</div>
+                ) : null}
               </div>
-              <Submit className={styles.SubmitButton}>Login</Submit>
+              <Submit className={styles.SubmitButton} onClick={loginUser}>
+                Login
+              </Submit>
             </div>
             <div className={styles.Register}>
               <h2 className={styles.Title}>Create an account</h2>
