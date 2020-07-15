@@ -13,4 +13,4 @@ Simply run `npm install` on the root folder of the project and it will install a
 
 * Edit job page
 * Edit nurse/doctor page
-* Frontend: login authentication and route protection
+* Frontend: route protection
