@@ -1,6 +1,6 @@
 # Medicare
 
-![alt text](./logo.png)s
+![alt text](./logo.png)
 
 A fictional freelancing platform for healthcare workers. It's my first project using the MERN stack.
 
