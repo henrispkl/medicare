@@ -7,8 +7,9 @@ import DoctorImg from '../../assets/images/doctor.jpg';
 import NurseImg from '../../assets/images/nurse.jpg';
 import Spinner from '../../components/Spinner/Spinner';
 import PrimaryButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
+import { connect } from 'react-redux';
 
-const Professionals = () => {
+const Professionals = (props) => {
   const [doctors, setDoctors] = useState([]);
   const [nurses, setNurses] = useState([]);
   const [loadedDoctors, setLoadedDoctors] = useState(false);
@@ -16,20 +17,20 @@ const Professionals = () => {
 
   useEffect(() => {
     API.get('http://localhost:4000/doctors')
-      .then(res => {
+      .then((res) => {
         setDoctors(res.data);
         setLoadedDoctors(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
 
     API.get('http://localhost:4000/nurses')
-      .then(res => {
+      .then((res) => {
         setNurses(res.data);
         setLoadedNurses(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }, []);
@@ -66,7 +67,7 @@ const Professionals = () => {
           </tr>
         </thead>
         <tbody>
-          {doctors.map(doctor => (
+          {doctors.map((doctor) => (
             <tr className={styles.Person} key={doctor._id}>
               <td className={styles.AvatarTd}>
                 <img className={styles.Avatar} src={DoctorImg} alt="" />
@@ -102,7 +103,7 @@ const Professionals = () => {
         </thead>
 
         <tbody>
-          {nurses.map(nurse => (
+          {nurses.map((nurse) => (
             <tr className={styles.Person} key={nurse._id}>
               <td className={styles.AvatarTd}>
                 <img className={styles.Avatar} src={NurseImg} alt="" />
@@ -123,14 +124,16 @@ const Professionals = () => {
         <div className={styles.Doctors}>
           <div className={styles.TitleBar}>
             <h1>Doctors</h1>
-            <Link
-              className={styles.AddProfessionalButton}
-              to="/professionals/add#doctor"
-            >
-              <PrimaryButton>
-                <i className="fas fa-user-md"></i> Add a doctor
-              </PrimaryButton>
-            </Link>
+            {props.isAuthenticated && (
+              <Link
+                className={styles.AddProfessionalButton}
+                to="/professionals/add#doctor"
+              >
+                <PrimaryButton>
+                  <i className="fas fa-user-md"></i> Add a doctor
+                </PrimaryButton>
+              </Link>
+            )}
           </div>
           {doctorsTable}
         </div>
@@ -138,14 +141,16 @@ const Professionals = () => {
         <div className={styles.Nurses}>
           <div className={styles.TitleBar}>
             <h1>Nurses</h1>
-            <Link
-              className={styles.AddProfessionalButton}
-              to="/professionals/add#nurse"
-            >
-              <PrimaryButton>
-                <i className="fas fa-user-nurse"></i> Add a nurse
-              </PrimaryButton>
-            </Link>
+            {props.isAuthenticated && (
+              <Link
+                className={styles.AddProfessionalButton}
+                to="/professionals/add#nurse"
+              >
+                <PrimaryButton>
+                  <i className="fas fa-user-nurse"></i> Add a nurse
+                </PrimaryButton>
+              </Link>
+            )}
           </div>
           {nursesTable}
         </div>
@@ -154,4 +159,6 @@ const Professionals = () => {
   );
 };
 
-export default Professionals;
+export default connect((store) => ({
+  isAuthenticated: store.auth.isAuthenticated,
+}))(Professionals);

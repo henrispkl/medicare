@@ -7,8 +7,9 @@ import Page from '../../components/Page/Page';
 import JobModal from '../../components/JobModal/JobModal';
 import Spinner from '../../components/Spinner/Spinner';
 import PrimaryButton from '../../components/Buttons/PrimaryButton/PrimaryButton';
+import { connect } from 'react-redux';
 
-const NewJobs = () => {
+const NewJobs = (props) => {
   const [jobData, setJobData] = useState(null);
   const [jobModalView, setJobModalView] = useState(false);
   const [jobs, setJobs] = useState([]);
@@ -16,16 +17,16 @@ const NewJobs = () => {
 
   useEffect(() => {
     API.get('/jobs')
-      .then(res => {
+      .then((res) => {
         setJobs(res.data);
         setLoaded(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const jobClick = data => {
+  const jobClick = (data) => {
     setJobData(data);
     setJobModalView(true);
   };
@@ -40,9 +41,11 @@ const NewJobs = () => {
       <div className={styles.TitleBar}>
         <h1>New Jobs</h1>
         <Link className={styles.AddJobButton} to="/jobs/add">
-          <PrimaryButton>
-            <i className="fas fa-plus-square"></i> Create a new job
-          </PrimaryButton>
+          {props.isAuthenticated && (
+            <PrimaryButton>
+              <i className="fas fa-plus-square"></i> Create a new job
+            </PrimaryButton>
+          )}
         </Link>
       </div>
       {!loaded && (
@@ -52,7 +55,7 @@ const NewJobs = () => {
       )}
 
       <div>
-        {jobs.map(job => (
+        {jobs.map((job) => (
           <Job data={job} click={jobClick} key={job._id} />
         ))}
       </div>
@@ -60,4 +63,6 @@ const NewJobs = () => {
   );
 };
 
-export default NewJobs;
+export default connect((store) => ({
+  isAuthenticated: store.auth.isAuthenticated,
+}))(NewJobs);
