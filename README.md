@@ -11,6 +11,4 @@ Simply run `npm install` on the root folder of the project and it will install a
 
 ## Roadmap
 
-* Edit job page
-* Edit nurse/doctor page
 * Frontend: route protection

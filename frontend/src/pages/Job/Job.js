@@ -36,7 +36,6 @@ const Job = (props) => {
 
   const editJob = () => {
     history.push('/jobs/edit', {
-      test: 'kek',
       job: jobData,
     });
   };

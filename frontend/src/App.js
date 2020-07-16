@@ -5,6 +5,7 @@ import styles from './App.module.css';
 // Components
 import RightBar from './components/RightBar/RightBar';
 import MobileBar from './components/MobileBar/MobileBar';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 // Redux
 import { connect } from 'react-redux';
@@ -31,13 +32,13 @@ const App = (props) => {
         <MobileBar />
         <Switch>
           <Route path="/" exact={true} component={NewJobs} />
-          <Route path="/jobs/add" component={JobForm} />
-          <Route
+          <PrivateRoute path="/jobs/add" component={JobForm} />
+          <PrivateRoute
             path="/jobs/edit"
             component={(props) => <JobForm {...props} edit={true} />}
           />
           <Route path="/job/:jobId" component={Job} />
-          <Route path="/professionals/add" component={AddProfessional} />
+          <PrivateRoute path="/professionals/add" component={AddProfessional} />
           <Route path="/professionals" component={Professionals} />
         </Switch>
       </div>
