@@ -38,7 +38,7 @@ router.post('/add', authMiddleware, (req, res) => {
 // Update a job
 router.post('/update', authMiddleware, (req, res) => {
   if (req.body.name.length) {
-    Job.findByIdAndUpdate(req.body._id, req.body)
+    Job.findByIdAndUpdate(req.body._id, req.body, { useFindAndModify: false })
       .then((result) => res.json({ msg: 'Job updated!', result }))
       .catch((err) => res.status(400).json(err));
   }
