@@ -27,11 +27,21 @@ router.post('/add', authMiddleware, (req, res) => {
     description: req.body.description,
   });
 
-  if (req.body.name.length)
+  if (req.body.name.length) {
     job
       .save()
       .then((result) => res.json({ msg: 'Job created!', result }))
       .catch((err) => res.status(400).json(err));
+  }
+});
+
+// Update a job
+router.post('/update', authMiddleware, (req, res) => {
+  if (req.body.name.length) {
+    Job.findByIdAndUpdate(req.body._id, req.body)
+      .then((result) => res.json({ msg: 'Job updated!', result }))
+      .catch((err) => res.status(400).json(err));
+  }
 });
 
 // View a specific job

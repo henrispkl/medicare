@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './InputContainer.module.css';
 
-const InputContainer = props => {
+const InputContainer = (props) => {
   const containerRef = useRef(null);
   const nameRef = useRef(null);
   const [activeName, setActiveName] = useState('');
@@ -21,17 +21,23 @@ const InputContainer = props => {
         containerRef.current.querySelector('input') ||
         containerRef.current.querySelector('textarea');
 
+      // If focus is given to input
       input.addEventListener('focus', () => {
         setActiveName(styles.ActiveName);
       });
 
+      // If focus is lost
       input.addEventListener('blur', () => {
         if (input.value.length === 0) {
           setActiveName('');
         }
       });
+
+      if (props.setActiveOnMount === true) {
+        setActiveName(styles.ActiveName);
+      }
     }
-  }, []);
+  }, [props.setActiveOnMount]);
 
   if (props.styleName) {
     propClassName = props.styleName;

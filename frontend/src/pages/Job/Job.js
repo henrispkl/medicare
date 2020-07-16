@@ -34,6 +34,13 @@ const Job = (props) => {
       });
   };
 
+  const editJob = () => {
+    history.push('/jobs/edit', {
+      test: 'kek',
+      job: jobData,
+    });
+  };
+
   return (
     <Page>
       {loading ? (
@@ -47,6 +54,10 @@ const Job = (props) => {
           </div>
           <div className={styles.Actions}>
             <b>Actions</b>
+            <div className={styles.Action} onClick={editJob}>
+              <i className="far fa-edit"></i> Edit job
+            </div>
+
             <div className={styles.DeleteJob} onClick={deleteJob}>
               {deleting ? (
                 <Spinner spinner2 />

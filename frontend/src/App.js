@@ -13,7 +13,7 @@ import { loadUser } from './store/actions/authActions';
 // Pages
 import NewJobs from './pages/NewJobs/NewJobs';
 import Professionals from './pages/Professionals/Professionals';
-import AddJob from './pages/AddJob/AddJob';
+import JobForm from './pages/JobForm/JobForm';
 import AddProfessional from './pages/AddProfessional/AddProfessional';
 import Job from './pages/Job/Job';
 import AuthModal from './components/AuthModal/AuthModal';
@@ -31,7 +31,11 @@ const App = (props) => {
         <MobileBar />
         <Switch>
           <Route path="/" exact={true} component={NewJobs} />
-          <Route path="/jobs/add" component={AddJob} />
+          <Route path="/jobs/add" component={JobForm} />
+          <Route
+            path="/jobs/edit"
+            component={(props) => <JobForm {...props} edit={true} />}
+          />
           <Route path="/job/:jobId" component={Job} />
           <Route path="/professionals/add" component={AddProfessional} />
           <Route path="/professionals" component={Professionals} />
