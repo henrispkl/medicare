@@ -12,7 +12,9 @@ A fictional freelancing platform for healthcare workers. It's my first project u
 
 ## How to install and run
 
-Simply run `npm install` on the root folder of the project and it will install all dependencies for both backend and frontend. To run the project, use `npm start`.
+Simply run `npm install` on the root folder of the project and it will install all dependencies for both backend and frontend. Then, in `backend/` folder, add the MongoDB connection string to the `.env.example` file and rename it to `.env`.
+
+To run the project, use `npm start`.
 
 ## Technologies used
 
