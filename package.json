@@ -28,8 +28,7 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4",
-    "regenerator-runtime": "^0.13.7"
+    "nodemon": "^2.0.4"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -37,7 +36,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.18"
+    "mongoose": "^5.9.18",
+    "regenerator-runtime": "^0.13.7"
   },
   "engines": {
     "node": "10.16.3"
