@@ -5,6 +5,8 @@ import mongoose from 'mongoose';
 import routes from './routes';
 import path from 'path';
 
+const port = process.env.PORT || 80;
+
 // Fix Babel "regeneratorruntime is not defined"
 import regeneratorRuntime from 'regenerator-runtime';
 
@@ -43,7 +45,7 @@ const connectDb = () => {
 
 // Init server
 connectDb().then(async () => {
-  app.listen(process.env.PORT, () => {
-    console.log(`Medicare test server running on port ${process.env.PORT}`);
+  app.listen(port, () => {
+    console.log(`Medicare test server running on port ${port}`);
   });
 });
