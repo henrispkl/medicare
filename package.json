@@ -2,16 +2,16 @@
   "name": "medicare",
   "version": "1.0.0",
   "description": "A simple MERN project for a fictional job platform for heathcare workers.",
-  "main": "index.js",
-  "dependencies": {
-    "concurrently": "^5.2.0"
-  },
-  "devDependencies": {},
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently 'cd backend && npm run start' 'cd frontend && npm run start'",
-    "install": "concurrently 'cd backend && npm install' 'cd frontend && npm install'"
+    "dev-install": "concurrently 'npm install' 'cd client && npm install'",
+    "dev-start": "concurrently 'nodemon --exec babel-node src/server.js' 'cd client && npm run start'",
+    "build": "babel src --out-dir dist && cd client && npm run build",
+    "start": "node dist/server.js",
+    "heroku-postbuild": "npm run dev-install && npm run build"
   },
+  "keywords": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/henrispkl/medicare.git"
@@ -21,5 +21,22 @@
   "bugs": {
     "url": "https://github.com/henrispkl/medicare/issues"
   },
-  "homepage": "https://github.com/henrispkl/medicare#readme"
+  "homepage": "https://github.com/henrispkl/medicare#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.18"
+  }
 }

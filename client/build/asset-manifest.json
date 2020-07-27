@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b9f722ce.chunk.css",
+    "main.js": "/static/js/main.c4adcddf.chunk.js",
+    "main.js.map": "/static/js/main.c4adcddf.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4e07a728.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4e07a728.js.map",
+    "static/js/2.e9c0e9bd.chunk.js": "/static/js/2.e9c0e9bd.chunk.js",
+    "static/js/2.e9c0e9bd.chunk.js.map": "/static/js/2.e9c0e9bd.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.90253cc13fe32cdb7a2dcd13aaf9642a.js": "/precache-manifest.90253cc13fe32cdb7a2dcd13aaf9642a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.b9f722ce.chunk.css.map": "/static/css/main.b9f722ce.chunk.css.map",
+    "static/js/2.e9c0e9bd.chunk.js.LICENSE.txt": "/static/js/2.e9c0e9bd.chunk.js.LICENSE.txt",
+    "static/media/doctor.jpg": "/static/media/doctor.d3476300.jpg",
+    "static/media/nurse.jpg": "/static/media/nurse.a4c6cb2c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e07a728.js",
+    "static/js/2.e9c0e9bd.chunk.js",
+    "static/css/main.b9f722ce.chunk.css",
+    "static/js/main.c4adcddf.chunk.js"
+  ]
+}
