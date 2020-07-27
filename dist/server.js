@@ -20,6 +20,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var port = process.env.PORT || 80; // Fix Babel "regeneratorruntime is not defined"
+
 var app = (0, _express["default"])(); // Middleware to let json data be acessed in the req.body
 
 app.use(_express["default"].json());
@@ -55,8 +57,8 @@ connectDb().then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRunti
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          app.listen(process.env.PORT, function () {
-            console.log("Medicare test server running on port ".concat(process.env.PORT));
+          app.listen(port, function () {
+            console.log("Medicare test server running on port ".concat(port));
           });
 
         case 1:
