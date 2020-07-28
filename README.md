@@ -16,7 +16,7 @@ A fictional freelancing platform for healthcare workers. It's my first project u
 
 First, add the MongoDB connection string to the `.env.example` file and rename it to `.env`.
 
-### Clone the repo and go to folder:
+### Clone the repo and go to folder
 
     git clone https://github.com/henrispkl/medicare.git
     cd medicare
@@ -26,7 +26,7 @@ First, add the MongoDB connection string to the `.env.example` file and rename i
     npm install
     npm run dev
 
-### Build the project and run using the build files:
+### Build the project and run using the build files
 
     npm run build
     npm start
