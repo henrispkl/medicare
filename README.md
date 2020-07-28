@@ -18,18 +18,18 @@ First, add the MongoDB connection string to the `.env.example` file and rename i
 
 ### Clone the repo and go to folder:
 
-  git clone https://github.com/henrispkl/medicare.git
-  cd medicare
+    git clone https://github.com/henrispkl/medicare.git
+    cd medicare
 
 ### Install all dependencies and run the project
 
-  npm install
-  npm run dev
+    npm install
+    npm run dev
 
 ### Build the project and run using the build files:
 
-  npm run build
-  npm start
+    npm run build
+    npm start
 
 ## Technologies used
 
