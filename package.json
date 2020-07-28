@@ -9,7 +9,7 @@
     "dev": "concurrently 'nodemon --exec babel-node src/server.js' 'cd client && npm run start'",
     "build": "babel src --out-dir dist && cd client && npm run build",
     "start": "node dist/server.js",
-    "heroku-postbuild": "npm run dev-install"
+    "heroku-postbuild": "npm run dev-install && npm run build"
   },
   "keywords": [],
   "repository": {
