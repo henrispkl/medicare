@@ -5,11 +5,10 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-install": "concurrently 'npm install' 'cd client && npm install'",
+    "install": "npm install && cd client && npm install",
     "dev": "concurrently 'nodemon --exec babel-node src/server.js' 'cd client && npm run start'",
     "build": "babel src --out-dir dist && cd client && npm run build",
-    "start": "node dist/server.js",
-    "heroku-postbuild": "npm run dev-install && npm run build"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "repository": {

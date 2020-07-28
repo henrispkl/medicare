@@ -3,6 +3,7 @@
 ![alt text](./splash.png)
 
 A fictional freelancing platform for healthcare workers. It's my first project using the MERN stack.
+[Live view](https://medicare-app.herokuapp.com/)
 
 ## Features
 
@@ -10,11 +11,20 @@ A fictional freelancing platform for healthcare workers. It's my first project u
 - Simple CRUD for doctors and nurses
 - JWT authentication
 
-## How to install and run
+## How to run locally
 
-Simply run `npm install` on the root folder of the project and it will install all dependencies for both backend and frontend. Then, in `backend/` folder, add the MongoDB connection string to the `.env.example` file and rename it to `.env`.
+- First, add the MongoDB connection string to the `.env.example` file and rename it to `.env`.
+- Clone the repo and go to folder:
+  git clone https://github.com/henrispkl/medicare.git
+  cd medicare
 
-To run the project, use `npm start`.
+- Install all dependencies and run the project
+  npm install
+  npm run dev
+
+- Build the project and run using the build files:
+  npm run build
+  npm start
 
 ## Technologies used
 
